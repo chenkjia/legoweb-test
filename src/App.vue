@@ -1,38 +1,35 @@
-<template>
-  <v-app dark>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+<template lang="pug">
+  v-app#inspire
+    v-navigation-drawer(v-model="drawer",clipped,fixed,app)
+      v-list(dense)
+        v-list-tile(to='/setcategories')
+          v-list-tile-action
+            v-icon card_giftcard
+          v-list-tile-content
+            v-list-tile-title 套装
+        v-list-tile(to='/partcategories')
+          v-list-tile-action
+            v-icon category
+          v-list-tile-content
+            v-list-tile-title 颗粒
+    v-toolbar(color="indigo",dark,app,fixed,clipped-left)
+      v-toolbar-side-icon(@click.stop="drawer = !drawer")
+      v-toolbar-title Lego
+    v-content
+      v-container(fluid,fill-height)
+        v-layout
+          v-flex
+            router-view
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
-    }
+  data: () => ({
+    drawer: null
+  }),
+  props: {
+    source: String
   }
 }
 </script>
