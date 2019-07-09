@@ -12,7 +12,7 @@
             v-icon category
           v-list-tile-content
             v-list-tile-title 颗粒
-    v-toolbar(color="indigo",dark,app,fixed,clipped-left)
+    v-toolbar(color="primary",dark,app,fixed,clipped-left)
       v-toolbar-side-icon(@click.stop="drawer = !drawer")
       v-toolbar-title Lego
     v-content

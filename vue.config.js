@@ -1,5 +1,9 @@
 const version = require('./version.json')
 module.exports = {
+  devServer: {
+    proxy: 'http://localhost:3000'
+  },
+
   pages: {
     index: {
       // page 的入口
@@ -15,5 +19,6 @@ module.exports = {
       // 提取出来的通用 chunk 和 vendor chunk。
       chunks: ['chunk-vendors', 'chunk-common', 'index']
     }
-  }
+  },
+  productionSourceMap: false
 }
